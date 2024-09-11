@@ -1,0 +1,150 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Alunos",
+      "version": "1.0.0",
+      "description": "API para gerenciar alunos"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "Servidor local"
+      }
+    ],
+    "paths": {
+      "/alunos": {
+        "get": {
+          "summary": "Listar todos os alunos",
+          "responses": {
+            "200": {
+              "description": "Lista de alunos",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Aluno"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Criar um novo aluno",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aluno"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Aluno criado com sucesso"
+            }
+          }
+        }
+      },
+      "/alunos/{id}": {
+        "get": {
+          "summary": "Obter um aluno por ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Aluno encontrado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Aluno"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Aluno não encontrado"
+            }
+          }
+        },
+        "put": {
+          "summary": "Atualizar um aluno",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aluno"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Aluno atualizado com sucesso"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Deletar um aluno por ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Aluno deletado com sucesso"
+            },
+            "404": {
+              "description": "Aluno não encontrado"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Aluno": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "nome": {
+              "type": "string"
+            },
+            "telefone": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  

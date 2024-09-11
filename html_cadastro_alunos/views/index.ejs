@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicação Node com EJS</title>
+  <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header data-bs-theme="dark">
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+          <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              <strong>Cadastro alunos</strong>
+            </a>
+          </div>
+        </div>
+    </header>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Sistema de Cadastro de Alunos</h1>
+                <p class="lead text-body-secondary">
+                  Este sistema foi desenvolvido para facilitar a interação com a API de cadastro de alunos. Aqui, você pode criar, atualizar, visualizar e gerenciar facilmente os dados dos alunos de forma rápida e eficiente. Ideal para aplicações que requerem um gerenciamento dinâmico de informações educacionais.
+                </p>
+              </div>
+            </div>
+        </section>
+        <hr>
+        <section class="py-5 text-center container">
+            <h1>Lista de aluno</h1>
+            <hr>
+            <table id="tabelaAlunos" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="conteudoTabela">
+                  <tr>
+                    <td colspan="4">
+                        Carregando ...
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="py-5 text-center container">
+            <h1>Adicionar/Alterar Aluno</h1>
+            <hr>
+            <form id="alunoForm" style="text-align: left;">
+                <div class="mb-3">
+                    <label for="alunoId" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="alunoId" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="alunoNome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="alunoNome" placeholder="Nome do aluno" required>
+                </div>
+                <div class="mb-3">
+                    <label for="alunoTelefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="alunoTelefone" placeholder="Telefone do aluno" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Limpar</button>
+            </form>
+        </section>
+    </main>
+    <script src="/scripts.js"></script>
+</body>
+</html>
